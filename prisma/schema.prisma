@@ -15,7 +15,7 @@ model User {
   image          String?
   hashedPassword String?
   createdAt      DateTime  @default(now())
-  updatedAy      DateTime  @updatedAt
+  updatedAt      DateTime  @updatedAt
 
   conversationIds String[]       @db.ObjectId
   conversations   Conversation[] @relation(fields: [conversationIds], references: [id])
