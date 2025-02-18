@@ -1,4 +1,6 @@
+//core
 import Image from "next/image";
+//components
 import AuthForm from "@/components/AuthForm";
 
 export default function Home() {

@@ -1,10 +1,11 @@
+//core
+import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
-import { Inter } from "next/font/google";
-
+//components
 import ToasterContext from "@/context/ToasterContext";
 import AuthContext from "@/context/AuthContext";
-
+//styles
 import "./globals.css";
 
 const inter = Inter({

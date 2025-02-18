@@ -1,4 +1,6 @@
+//core
 import { ReactNode } from "react";
+//components
 import Sidebar from "@/components/sidebar/Sidebar";
 
 const UserLayout = async ({ children }: { children: ReactNode }) => {

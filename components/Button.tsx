@@ -1,7 +1,8 @@
 "use client";
-
-import { cn } from "@/lib/utils";
+//core
 import { ReactNode } from "react";
+//helpers
+import { cn } from "@/lib/utils";
 
 interface ButtonProps {
   type?: "button" | "submit" | "reset" | undefined;

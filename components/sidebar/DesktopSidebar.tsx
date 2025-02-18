@@ -1,7 +1,10 @@
 "use client";
 
-import useRoutes from "@/hooks/useRoutes";
+//core
 import { useState } from "react";
+//hooks
+import useRoutes from "@/hooks/useRoutes";
+//components
 import DesktopItem from "@/components/sidebar/DesktopItem";
 
 const DesktopSidebar = () => {

@@ -1,15 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+//core
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Input from "@/components/Input";
-import Button from "@/components/Button";
-import AuthSocialButton from "@/components/AuthSocialButton";
-import { BsGithub, BsGoogle } from "react-icons/bs";
-import axios from "axios";
-import toast from "react-hot-toast";
+import { useCallback, useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
+import { BsGithub, BsGoogle } from "react-icons/bs";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import axios from "axios";
+//components
+import AuthSocialButton from "@/components/AuthSocialButton";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
 
 type Variant = "SIGNIN" | "SIGNUP";
 

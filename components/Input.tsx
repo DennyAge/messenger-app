@@ -1,7 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+//core
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+//helpers
+import { cn } from "@/lib/utils";
 
 interface InputProps {
   label: string;
