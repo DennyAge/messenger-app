@@ -15,14 +15,13 @@ const getUsers = async () => {
       },
       where: {
         NOT: {
-          email: session?.user?.email,
+          email: session.user.email,
         },
       },
     });
 
     return users;
   } catch (error) {
-    console.log(error);
     return [];
   }
 };
