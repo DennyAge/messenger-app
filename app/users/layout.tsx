@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import getUsers from "@/actions/getUsers";
 //components
 import Sidebar from "@/components/sidebar/Sidebar";
-import UsersList from "@/components/UsersList";
+import UsersList from "@/app/users/components/UsersList";
 
 const UserLayout = async ({ children }: { children: ReactNode }) => {
   const users = await getUsers();

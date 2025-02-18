@@ -2,14 +2,13 @@
 
 //types
 import { User } from "@prisma/client";
-import UserCard from "@/components/UserCard";
+import UserCard from "@/app/users/components/UserCard";
 
 interface UsersListProps {
   users: User[];
 }
 
 const UsersList = ({ users }: UsersListProps) => {
-  console.log(users);
   return (
     <aside
       className="fixed inside-y-0 pb-20 lg:pb-0 lg:left-20 lg:w-80 lg:block
