@@ -1,8 +1,10 @@
-import { useMemo } from "react";
+//core
+import { HiArrowLeftEndOnRectangle, HiOutlineUsers } from "react-icons/hi2";
 import { usePathname } from "next/navigation";
-import { HiChat } from "react-icons/hi";
-import { HiArrowLeftEndOnRectangle, HiUsers } from "react-icons/hi2";
+import { TbMessage } from "react-icons/tb";
 import { signOut } from "next-auth/react";
+import { useMemo } from "react";
+//hooks
 import useConversation from "@/hooks/useConversation";
 
 const useRoutes = () => {
@@ -14,13 +16,13 @@ const useRoutes = () => {
       {
         label: "Chat",
         href: "/conversations",
-        icon: HiChat,
+        icon: TbMessage,
         active: pathname === "/conversations" || !!conversationId,
       },
       {
         label: "Users",
         href: "/users",
-        icon: HiUsers,
+        icon: HiOutlineUsers,
         active: pathname === "/users",
       },
       {
