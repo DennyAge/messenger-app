@@ -2,6 +2,7 @@
 
 //types
 import { User } from "@prisma/client";
+//components
 import UserCard from "@/app/users/components/UserCard";
 
 interface UsersListProps {

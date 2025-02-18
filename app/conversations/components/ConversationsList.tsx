@@ -1,8 +1,13 @@
+"use client";
+
+//types
+import { FullConversationType } from "@/types";
+
 interface ConversationsListProps {
-  initialItems: [];
+  conversations: FullConversationType[];
 }
 
-const ConversationsList = ({ initialItems }: ConversationsListProps) => {
+const ConversationsList = ({ conversations }: ConversationsListProps) => {
   return <div>ConversationsList</div>;
 };
 export default ConversationsList;

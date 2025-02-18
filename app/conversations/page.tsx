@@ -1,7 +1,10 @@
 "use client";
 
+//hooks
 import useConversation from "@/hooks/useConversation";
+//components
 import EmptyState from "@/components/EmptyState";
+//helpers
 import { cn } from "@/lib/utils";
 
 const ConversationsPage = () => {

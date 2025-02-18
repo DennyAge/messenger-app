@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 //types
 import { User } from "@prisma/client";
+//components
 import Avatar from "@/components/Avatar";
 
 interface UserCardProps {

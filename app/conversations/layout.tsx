@@ -1,12 +1,17 @@
+//core
 import { ReactNode } from "react";
-import Sidebar from "@/components/sidebar/Sidebar";
+//components
 import ConversationsList from "@/app/conversations/components/ConversationsList";
+import Sidebar from "@/components/sidebar/Sidebar";
+//actions
+import getConversations from "@/actions/getConversations";
 
 const ConversationsLayout = async ({ children }: { children: ReactNode }) => {
+  const conversations = await getConversations();
   return (
     <Sidebar>
       <div className="h-full">
-        <ConversationsList initialItems={[]} />
+        <ConversationsList conversations={conversations} />
         {children}
       </div>
     </Sidebar>
