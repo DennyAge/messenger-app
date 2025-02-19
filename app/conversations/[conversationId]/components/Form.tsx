@@ -2,13 +2,14 @@
 
 //core
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { PiPaperPlaneTiltLight } from "react-icons/pi";
+import { CldUploadButton } from "next-cloudinary";
 import { TbPhotoPlus } from "react-icons/tb";
 import axios from "axios";
 //hooks
 import useConversation from "@/hooks/useConversation";
 //components
 import MessageInput from "@/app/conversations/[conversationId]/components/MessageInput";
-import { PiPaperPlaneTiltLight } from "react-icons/pi";
 
 const Form = () => {
   const { conversationId } = useConversation();
@@ -32,9 +33,23 @@ const Form = () => {
       conversationId,
     });
   };
+
+  const handleUpload = (result: any) => {
+    axios.post("/api/messages", {
+      image: result?.info?.secure_url,
+      conversationId,
+    });
+  };
+
   return (
     <div className="p-4 bg-white border-t flex items-center gap-2 lg:gap-4 w-full">
-      <TbPhotoPlus size={30} className="text-primary/60" />
+      <CldUploadButton
+        options={{ maxFiles: 1 }}
+        onSuccess={handleUpload}
+        uploadPreset="fcg7itwm"
+      >
+        <TbPhotoPlus size={30} className="text-primary/60 hover:text-primary" />
+      </CldUploadButton>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex items-center gap-2 lg:gap-4 w-full"
