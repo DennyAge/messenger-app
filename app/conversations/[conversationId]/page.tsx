@@ -12,7 +12,7 @@ interface IParams {
 }
 
 const ConversationPage = async ({ params }: { params: IParams }) => {
-  const { conversationId } = await params;
+  const { conversationId } = params;
   const conversation = await getConversationById(conversationId);
   const messages = await getMessages(conversationId);
 

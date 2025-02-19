@@ -31,7 +31,7 @@ const Button = ({
       className={cn(
         `
         flex justify-center rounded-md px-3 py-2 text-sm font-semibold
-        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border hover:shadow-md transition
       `,
         disabled && "opacity-50 cursor-default",
         fullWidth && "w-full",
