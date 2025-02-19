@@ -1,6 +1,7 @@
 "use client";
 
 //core
+import { TbUsersPlus } from "react-icons/tb";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 //types
@@ -9,7 +10,7 @@ import { FullConversationType } from "@/types";
 import useConversation from "@/hooks/useConversation";
 //helpers
 import { cn } from "@/lib/utils";
-import { TbUsersPlus } from "react-icons/tb";
+//components
 import ConversationCard from "@/app/conversations/components/ConversationCard";
 
 interface ConversationsListProps {

@@ -1,17 +1,18 @@
 "use client";
 
 //core
+import { useCallback, useMemo } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { format } from "date-fns";
 //types
 import { FullConversationType } from "@/types";
 //hooks
 import useOtherUser from "@/hooks/useOtherUser";
 //helpers
 import { cn } from "@/lib/utils";
+//components
 import Avatar from "@/components/Avatar";
-import { format } from "date-fns";
 
 interface ConversationCardProps {
   conversation: FullConversationType;
@@ -68,18 +69,8 @@ const ConversationCard = ({
     <div
       onClick={handleClick}
       className={cn(
-        `
-        w-full
-        relative
-        flex
-        items-center
-        space-x-3
-        hover:bg-primary/10
-        rounded-lg
-        transition
-        cursor-pointer
-        p-3
-      `,
+        `w-full relative flex items-center space-x-3 hover:bg-primary/10 rounded-lg
+        transition cursor-pointer p-3`,
         selected ? "bg-primary/10" : "bg-white",
       )}
     >
