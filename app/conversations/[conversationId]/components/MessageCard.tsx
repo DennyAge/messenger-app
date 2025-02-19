@@ -3,13 +3,13 @@
 //core
 import { useSession } from "next-auth/react";
 import { format } from "date-fns";
+import Image from "next/image";
 //types
 import { FullMessageType } from "@/types";
 //helpers
 import { cn } from "@/lib/utils";
 //components
 import Avatar from "@/components/Avatar";
-import Image from "next/image";
 
 interface MessageCardProps {
   isLast?: boolean;
@@ -59,6 +59,9 @@ const MessageCard = ({ isLast, data }: MessageCardProps) => {
             <div>{data.body}</div>
           )}
         </div>
+        {isLast && isOwn && seenList.length > 0 && (
+          <div className="text-xs font-light text-gray-500">{`Seen By ${seenList}`}</div>
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 "use client";
 
 //core
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import axios from "axios";
 //types
 import { FullMessageType } from "@/types";
 //hooks
