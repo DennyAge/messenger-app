@@ -14,10 +14,7 @@ const Avatar = ({ user }: AvatarProps) => {
     <div className="relative">
       <div className="relative inline-block rounded-full overflow-hidden h-9 w-9 md:h-11 md:w-11">
         <Image
-          src={
-            user?.image ||
-            "https://res.cloudinary.com/dd9bo6rou/image/upload/v1739963473/sl4npjab6epjeqpcybpu.svg"
-          }
+          src={user?.image || "/images/user-circle.png"}
           alt="avatar"
           fill
         />
