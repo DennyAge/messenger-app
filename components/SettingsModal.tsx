@@ -2,18 +2,20 @@
 
 //core
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { CldUploadButton } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import Image from "next/image";
 import axios from "axios";
 //types
 import { User } from "@prisma/client";
 //components
-import Modal from "@/components/Modal";
 import Input from "@/components/inputs/Input";
-import Image from "next/image";
-import { CldUploadButton } from "next-cloudinary";
 import Button from "@/components/Button";
+import Modal from "@/components/Modal";
+//helpers
+import { cn } from "@/lib/utils";
 
 interface SettingsModalProps {
   currentUser: User;
@@ -102,9 +104,15 @@ const SettingsModal = ({
                     onSuccess={handleUpload}
                     uploadPreset="fcg7itwm"
                   >
-                    <Button disabled={isLoading} secondary type="button">
+                    <div
+                      className={cn(
+                        `flex justify-center rounded-md px-3 py-2 text-sm font-semibold
+                    border hover:shadow-md transition`,
+                        isLoading && "opacity-50 cursor-default",
+                      )}
+                    >
                       Change
-                    </Button>
+                    </div>
                   </CldUploadButton>
                 </div>
               </div>
