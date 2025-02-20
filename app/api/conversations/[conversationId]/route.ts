@@ -4,12 +4,12 @@ import { prisma } from "@/prisma";
 import { pusherServer } from "@/lib/pusher";
 
 interface IParams {
-  conversationId: string;
+  conversationId?: string;
 }
 
 export async function DELETE(
   request: Request,
-  { params }: { params: IParams },
+  { params }: { params: Promise<IParams> },
 ) {
   try {
     const { conversationId } = await params;
