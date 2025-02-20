@@ -12,8 +12,8 @@ import useOtherUser from "@/hooks/useOtherUser";
 //helpers
 import { cn } from "@/lib/utils";
 //components
-import Avatar from "@/components/Avatar";
 import AvatarGroup from "@/components/AvatarGroup";
+import Avatar from "@/components/Avatar";
 
 interface ConversationCardProps {
   conversation: FullConversationType;

@@ -11,6 +11,7 @@ import { Conversation, User } from "@prisma/client";
 import useOtherUser from "@/hooks/useOtherUser";
 //components
 import ProfileDrawer from "@/app/conversations/[conversationId]/components/ProfileDrawer";
+import AvatarGroup from "@/components/AvatarGroup";
 import Avatar from "@/components/Avatar";
 
 interface HeaderProps {
@@ -45,7 +46,11 @@ const Header = ({ conversation }: HeaderProps) => {
           >
             <PiArrowCircleLeftThin size={32} />
           </Link>
-          <Avatar user={otherUser} />
+          {conversation.isGroup ? (
+            <AvatarGroup users={conversation.users} />
+          ) : (
+            <Avatar user={otherUser} />
+          )}
           <div className="flex flex-col">
             <div>{conversation.name || otherUser.name}</div>
             <div className="text-sm font-light text-neutral-500">

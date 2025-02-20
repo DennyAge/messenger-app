@@ -18,6 +18,7 @@ import { Conversation, User } from "@prisma/client";
 //components
 import ConfirmModal from "@/app/conversations/[conversationId]/components/ConfirmModal";
 import Avatar from "@/components/Avatar";
+import AvatarGroup from "@/components/AvatarGroup";
 
 interface ProfileDrawerProps {
   data: Conversation & {
@@ -96,7 +97,11 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerProps) => {
                       <div className="relative mt-6 flex-1 px-4 sm:px-6">
                         <div className="flex flex-col items-center">
                           <div className="mb-2 ">
-                            <Avatar user={otherUser} />
+                            {data.isGroup ? (
+                              <AvatarGroup users={data.users} />
+                            ) : (
+                              <Avatar user={otherUser} />
+                            )}
                           </div>
                           <div>{title}</div>
                           <div className="text-sm text-gray-500">
@@ -122,6 +127,18 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerProps) => {
                                   </dt>
                                   <dd className="mt-1 text-sm text-gray-500 sm:col-span-2">
                                     {otherUser.email}
+                                  </dd>
+                                </div>
+                              )}
+                              {data.isGroup && (
+                                <div>
+                                  <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0 ">
+                                    Emails
+                                  </dt>
+                                  <dd className="mt-1 text-sm text-gray-500 sm:col-span-2">
+                                    {data.users
+                                      .map((user) => user.email)
+                                      .join(", ")}
                                   </dd>
                                 </div>
                               )}
