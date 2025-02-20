@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 //components
 import ToasterContext from "@/context/ToasterContext";
+import ActiveStatus from "@/components/ActiveStatus";
 import AuthContext from "@/context/AuthContext";
 //styles
 import "./globals.css";
@@ -26,6 +27,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
       <body className={`${inter.className}  antialiased`}>
         <AuthContext>
           <ToasterContext />
+          <ActiveStatus />
           {children}
         </AuthContext>
       </body>
