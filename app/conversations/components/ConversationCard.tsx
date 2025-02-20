@@ -13,6 +13,7 @@ import useOtherUser from "@/hooks/useOtherUser";
 import { cn } from "@/lib/utils";
 //components
 import Avatar from "@/components/Avatar";
+import AvatarGroup from "@/components/AvatarGroup";
 
 interface ConversationCardProps {
   conversation: FullConversationType;
@@ -74,7 +75,12 @@ const ConversationCard = ({
         selected ? "bg-primary/10" : "bg-white",
       )}
     >
-      <Avatar user={otherUser} />
+      {conversation.isGroup ? (
+        <AvatarGroup users={conversation.users} />
+      ) : (
+        <Avatar user={otherUser} />
+      )}
+
       <div className="min-w-0 flex-1">
         <div className="focus:outline-none">
           <div className="flex justify-between items-center mb-1">
