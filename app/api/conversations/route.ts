@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import getCurrentUser from "@/actions/getCurrentUser";
 import { prisma } from "@/prisma";
+import { pusherServer } from "@/lib/pusher";
 
 export async function POST(request: Request) {
   try {
@@ -37,6 +38,13 @@ export async function POST(request: Request) {
           users: true,
         },
       });
+
+      newConversation.users.forEach((user) => {
+        if (user.email) {
+          pusherServer.trigger(user.email, "conversation:new", newConversation);
+        }
+      });
+
       return NextResponse.json(newConversation);
     }
 
@@ -80,6 +88,13 @@ export async function POST(request: Request) {
         users: true,
       },
     });
+
+    newConversation.users.forEach((user) => {
+      if (user.email) {
+        pusherServer.trigger(user.email, "conversation:new", newConversation);
+      }
+    });
+
     return NextResponse.json(newConversation);
   } catch (error) {
     console.log(error, "CONVERSATION ERROR");
