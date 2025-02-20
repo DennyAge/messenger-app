@@ -8,6 +8,7 @@ import Link from "next/link";
 //types
 import { Conversation, User } from "@prisma/client";
 //hooks
+import useActiveList from "@/hooks/useActiveList";
 import useOtherUser from "@/hooks/useOtherUser";
 //components
 import ProfileDrawer from "@/app/conversations/[conversationId]/components/ProfileDrawer";
@@ -23,13 +24,15 @@ interface HeaderProps {
 const Header = ({ conversation }: HeaderProps) => {
   const otherUser = useOtherUser(conversation);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email!) !== -1;
 
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
       return `${conversation.users.length} members`;
     }
-    return "Active";
-  }, [conversation]);
+    return isActive ? "Active" : "Offline";
+  }, [conversation, isActive]);
 
   return (
     <>
