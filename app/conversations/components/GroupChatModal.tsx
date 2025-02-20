@@ -9,9 +9,10 @@ import axios from "axios";
 //types
 import { User } from "@prisma/client";
 //components
-import Modal from "@/components/Modal";
-import Input from "@/components/inputs/Input";
 import Select from "@/components/inputs/Select";
+import Input from "@/components/inputs/Input";
+import Modal from "@/components/Modal";
+import Button from "@/components/Button";
 
 interface GroupChatModalProps {
   users: User[];
@@ -86,6 +87,19 @@ const GroupChatModal = ({ isOpen, onClose, users }: GroupChatModalProps) => {
                 value={members}
               />
             </div>
+          </div>
+          <div className="mt-6 flex items-center justify-end gap-x-2">
+            <Button
+              disabled={isLoading}
+              onClick={onClose}
+              secondary
+              type="button"
+            >
+              Cancel
+            </Button>
+            <Button disabled={isLoading} type="submit">
+              Create
+            </Button>
           </div>
         </div>
       </form>
